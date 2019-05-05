@@ -52,10 +52,13 @@ compile:
     expire_in: 2 weeks
 
 publish:
+  image: mono
+  before_script:
+  - ls .
   stage: publish
   dependencies: 
     - compile
   script:
-  - dotnet push *.nupkg -k $nugetAPI -Source "https://api.nuget.org/v3/index.json"
+  - nuget push *.nupkg -k $nugetAPI -Source "https://api.nuget.org/v3/index.json"
   only:
     - master
