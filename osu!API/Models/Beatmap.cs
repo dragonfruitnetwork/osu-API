@@ -26,12 +26,54 @@ namespace DragonFruit.osu.API.Models
         public int BeatmapSetID { get; set; }
 
         [JsonProperty("bpm")]
-        public int BPM { get; set; }
+        public float BPM { get; set; }
 
         [JsonProperty("creator")]
         public string Mapper { get; set; }
 
         [JsonProperty("difficultyrating")]
         public float StarValue { get; set; }
+
+        [JsonProperty("diff_size")]
+        public float CircleSize { get; set; }
+
+        [JsonProperty("diff_overall")]
+        public float OverallDifficulty { get; set; }
+
+        [JsonProperty("diff_approach")]
+        public float ApproachRate { get; set; }
+
+        [JsonProperty("diff_drain")]
+        public float DrainRate { get; set; }
+
+        /// <summary>
+        /// seconds from first note to last note including breaks
+        /// </summary>
+        [JsonProperty("hit_length")]
+        public float SongNoteDuration { get; set; }
+
+        [JsonProperty("version")]
+        public string DifficultyName { get; set; }
+
+        [JsonProperty("file_md5")]
+        public string BeatmapHash { get; set; }
+
+        [JsonProperty("mode")]
+        public osu.GameModes GameMode { get; set; }
+
+        [JsonProperty("tags")]
+        public string TagList { get; set; }
+
+        [JsonProperty("favourite_count")]
+        public int FavouriteRating { get; set; }
+
+        [JsonProperty("playcount")]
+        public int PlayCount { get; set; }
+
+        [JsonProperty("passcount")]
+        public int PassCount { get; set; }
+
+        [JsonProperty("max_combo")]
+        public int MaxCombo { get; set; }
     }
 }

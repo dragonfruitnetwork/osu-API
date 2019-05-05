@@ -6,7 +6,7 @@ namespace DragonFruit.osu.API
 {
     public class osu
     {
-        public static readonly string endpointBase = "https://osu.ppy.sh/p/api/";
+        public static readonly string endpointBase = "https://osu.ppy.sh/api";
         internal static string apiKey = "";
 
         /// <summary>
@@ -21,6 +21,14 @@ namespace DragonFruit.osu.API
             Pending = 0,
             WIP = -1,
             Graveyard = -2
+        }
+
+        public enum GameModes
+        {
+            osu = 0,
+            Taiko = 1,
+            CatchTheBeat = 2,
+            Mainia = 3
         }
 
 
