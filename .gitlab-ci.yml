@@ -48,13 +48,13 @@ compile:
   - dotnet pack "osu!API/osu!API.csproj" /p:PackageVersion=2019.$CI_PIPELINE_ID -o ..
   artifacts:
     paths:
-    - *.nupkg
+    - "*.nupkg"
     expire_in: 2 weeks
 
 publish:
   stage: publish
   dependencies: 
-    - compile
+  - compile
   script:
   - dotnet push *.nupkg -k $nugetAPI -Source "https://api.nuget.org/v3/index.json"
   only:
