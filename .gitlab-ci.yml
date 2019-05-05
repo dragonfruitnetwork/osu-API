@@ -1,0 +1,61 @@
+image: mcr.microsoft.com/dotnet/core/sdk
+
+steps:
+  - build
+  - test
+  - codequality
+  - compile
+  - publish
+
+before_script:
+  - dotnet restore
+
+build:
+  stage: build
+  script:
+  - dotnet build
+
+test:
+  stage: test
+  script:
+  - cd "osu!Test"
+  - dotnet run
+
+codequality:
+  stage: codequality
+  image: docker:stable
+  allow_failure: true
+  services:
+    - docker:stable-dind
+  variables:
+    DOCKER_DRIVER: overlay2
+  script:
+    - docker run
+        --env SOURCE_CODE="$PWD"
+        --volume "$PWD":/code
+        --volume /var/run/docker.sock:/var/run/docker.sock
+        "registry.gitlab.com/gitlab-org/security-products/codequality:11-8-stable" /code
+  artifacts:
+    reports:
+      codequality: gl-code-quality-report.json
+    expire_in: 2 weeks
+  except:
+    - master
+
+compile:
+  stage: compile
+  script:
+  - dotnet pack "osu!API/osu!API.csproj" /p:PackageVersion=2019.$CI_PIPELINE_ID -o ..
+  artifacts:
+    paths:
+    - *.nupkg
+    expire_in: 2 weeks
+
+publish:
+  stage: publish
+  dependencies: 
+    - compile
+  script:
+  - dotnet push *.nupkg -k $nugetAPI -Source "https://api.nuget.org/v3/index.json"
+  only:
+    - master

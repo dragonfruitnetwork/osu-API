@@ -3,6 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>DragonFruit.osu.API</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>DragonFruit Network</Authors>
+    <Description>osu! C# API Wrapper</Description>
+    <Copyright>Copyright 2019 (C) DragonFruit Network</Copyright>
+    <PackageProjectUrl>https://github.com/dragonfruitnetwork/osu-API</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dragonfruitnetwork/osu-API</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageTags>osu, osustats, dragonfruit</PackageTags>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <AssemblyVersion>2019.5.05.17</AssemblyVersion>
+    <PackageId>osuAPI</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

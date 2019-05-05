@@ -38,7 +38,7 @@ namespace DragonFruit.osu.API.Models
         public int MaxCombo { get; set; }
 
         [JsonProperty("perfect")]
-        public bool Perfect { get; set; }
+        public int Perfect { get; set; }
 
         [JsonProperty("date")]
         public DateTime Date { get; set; }
@@ -50,6 +50,6 @@ namespace DragonFruit.osu.API.Models
         public float Points { get; set; }
 
         [JsonProperty("replay_available")]
-        public bool IsReplayAvailable { get; set; }
+        public int IsReplayAvailable { get; set; }
     }
 }

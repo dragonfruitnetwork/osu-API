@@ -14,15 +14,35 @@ namespace osu_Test
     {
         static async Task Main(string[] args)
         {
-            osu.SetAPIKey("212c6b9d6370f2ac4c07aafc5e234ca52691f754");
-            var x = new RequestModel
-            {
-                User = "PaPaCurry",
-                IsUserAnID = false
-            };
+            osu.SetAPIKey(Environment.GetEnvironmentVariable("osuAPI", EnvironmentVariableTarget.Machine));
 
-            var y = await Requests.Make<User>(Endpoints.UserInfo, x); //make the request and serialise it to the User model
-            Console.WriteLine(y[0].UserID); //print ID
+            //username test
+            var user = await Requests.Make<User>(Endpoints.UserInfo, new RequestModel
+            {
+                User = "13723332",
+                IsUserAnID = true
+            }); //make the request and serialise it to the User model
+            Console.WriteLine("Test 1: Get User Info: "+ user[0].Username+" (SUCCESS)");
+
+            //recent osu beatmaps
+            var maps = await Requests.Make<Beatmap>(Endpoints.BeatmapInfo, new RequestModel
+            {
+                Limit = 50,
+                Mode = osu.GameModes.osu,
+                IncludeConvertedMaps = false,
+
+            }); //make the request and serialise it to the User model
+            Console.WriteLine("Test 2: Get 50 Beatmaps: " + maps.Count + " listed");
+
+            //get top scores from ADAMAS Monstrata's Insane (1799100)
+            var adamas = await Requests.Make<Score>(Endpoints.BeatmapScores, new RequestModel
+            {
+                Beatmap = "1799100",
+                User = "13723332",
+                IsUserAnID = true
+            }); //make the request and serialise it to the User model
+            Console.WriteLine($"Test 2: Get {user[0].Username}'s Best score at [ADAMAS Monstrata's Insane] {adamas[0].PlayerScore:n0} points");
+
         }
     }
 }
