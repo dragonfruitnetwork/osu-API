@@ -4,6 +4,7 @@ stages:
   - build
   - test
   - codequality
+  - pack
   - publish
 
 before_script:
@@ -42,7 +43,7 @@ codequality:
     - master
 
 compile:
-  stage: publish
+  stage: pack
   script:
   - dotnet pack "osu!API/osu!API.csproj" /p:PackageVersion=2019.$CI_PIPELINE_ID -o ..
   artifacts:
