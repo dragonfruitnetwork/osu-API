@@ -3,7 +3,6 @@ image: mcr.microsoft.com/dotnet/core/sdk
 stages:
   - build
   - test
-  - codequality
   - pack
   - publish
 
@@ -22,7 +21,7 @@ test:
   - dotnet run
 
 codequality:
-  stage: codequality
+  stage: test
   image: docker:stable
   allow_failure: true
   services:
