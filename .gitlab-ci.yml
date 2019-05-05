@@ -59,6 +59,6 @@ publish:
   dependencies: 
     - compile
   script:
-  - nuget push *.nupkg -k $nugetAPI -Source "https://api.nuget.org/v3/index.json"
+  - nuget push *.nupkg -ApiKey $nugetAPI -Source "https://api.nuget.org/v3/index.json"
   only:
     - master
