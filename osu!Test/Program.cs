@@ -13,7 +13,7 @@ namespace osu_Test
     {
         static async Task Main(string[] args)
         {
-            var JsonString = await new HttpClient().GetAsync($"{osu.endpointBase}/get_user?k=&u=13723332").Result.Content.ReadAsStringAsync();
+            var JsonString = await new HttpClient().GetAsync($"{osu.endpointBase}/get_user?k=212c6b9d6370f2ac4c07aafc5e234ca52691f754&u=13723332").Result.Content.ReadAsStringAsync();
             var JsonList = JArray.Parse(JsonString);
             List<User> Beatmaps = new List<User>();
 
