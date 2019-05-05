@@ -18,7 +18,7 @@ test:
   stage: test
   script:
   - cd "osu!Test"
-  - dotnet run
+  - dotnet run -- $osuAPI
 
 codequality:
   stage: test
@@ -52,6 +52,8 @@ compile:
 
 publish:
   stage: publish
+  dependencies: 
+    - compile
   script:
   - dotnet push *.nupkg -k $nugetAPI -Source "https://api.nuget.org/v3/index.json"
   only:

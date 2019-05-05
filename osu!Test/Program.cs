@@ -14,7 +14,7 @@ namespace osu_Test
     {
         static async Task Main(string[] args)
         {
-            osu.SetAPIKey(Environment.GetEnvironmentVariable("osuAPI", EnvironmentVariableTarget.Machine));
+            osu.SetAPIKey(args.Length>0? args[0] :Environment.GetEnvironmentVariable("osuAPI", EnvironmentVariableTarget.Machine));
 
             //username test
             var user = await Requests.Make<User>(Endpoints.UserInfo, new RequestModel
