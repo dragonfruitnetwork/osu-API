@@ -41,7 +41,7 @@ namespace osu_Test
                 User = "13723332",
                 IsUserAnID = true
             }); //make the request and serialise it to the User model
-            Console.WriteLine($"Test 2: Get {user[0].Username}'s Best score at [ADAMAS Monstrata's Insane] {adamas[0].PlayerScore:n0} points");
+            Console.WriteLine($"Test 3: Get {user[0].Username}'s Best score at [ADAMAS Monstrata's Insane] {adamas[0].PlayerScore:n0} points");
 
         }
     }

@@ -44,7 +44,8 @@ codequality:
 compile:
   stage: pack
   script:
-  - dotnet pack "osu!API/osu!API.csproj" /p:PackageVersion=2019.$CI_PIPELINE_ID -o ..
+  - dotnet build -c Release
+  - dotnet pack "osu!API/osu!API.csproj" /p:PackageVersion=2019.$CI_PIPELINE_ID -o .. -c Release
   artifacts:
     paths:
     - "*.nupkg"
