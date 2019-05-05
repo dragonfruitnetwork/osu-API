@@ -14,17 +14,6 @@ namespace osu_Test
     {
         static async Task Main(string[] args)
         {
-            //var JsonString = await new HttpClient().GetAsync($"{osu.endpointBase}/get_user?k=212c6b9d6370f2ac4c07aafc5e234ca52691f754&u=13723332").Result.Content.ReadAsStringAsync();
-            //var JsonList = JArray.Parse(JsonString);
-            //List<User> Beatmaps = new List<User>();
-
-            //foreach(var x in JsonList)
-            //{
-            //    Beatmaps.Add(x.ToObject<User>(JsonSerializer.Create(new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })));
-            //}
-
-            //Console.WriteLine(JsonConvert.SerializeObject(Beatmaps, Formatting.Indented));
-
             osu.SetAPIKey("212c6b9d6370f2ac4c07aafc5e234ca52691f754");
             var x = new RequestModel
             {
@@ -32,7 +21,8 @@ namespace osu_Test
                 IsUserAnID = false
             };
 
-            Console.Write(RequestModel.Compile(Endpoints.UserInfo, x));
+            var y = await Requests.Make<User>(Endpoints.UserInfo, x); //make the request and serialise it to the User model
+            Console.WriteLine(y[0].UserID); //print ID
         }
     }
 }

@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "osu!API", "osu!API\osu!API.csproj", "{6709EC95-8D8A-4643-B1D4-ADC5EF05BB52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu!Test", "osu!Test\osu!Test.csproj", "{29B6661D-EE1D-4EBA-A364-293161893824}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "osu!Test", "osu!Test\osu!Test.csproj", "{29B6661D-EE1D-4EBA-A364-293161893824}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{865E0DB8-F18A-40D0-8D90-91CD37DD8391}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
