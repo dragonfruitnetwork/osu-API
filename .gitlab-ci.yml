@@ -1,10 +1,9 @@
 image: mcr.microsoft.com/dotnet/core/sdk
 
-steps:
+stages:
   - build
   - test
   - codequality
-  - compile
   - publish
 
 before_script:
@@ -43,7 +42,7 @@ codequality:
     - master
 
 compile:
-  stage: compile
+  stage: publish
   script:
   - dotnet pack "osu!API/osu!API.csproj" /p:PackageVersion=2019.$CI_PIPELINE_ID -o ..
   artifacts:
@@ -53,8 +52,6 @@ compile:
 
 publish:
   stage: publish
-  dependencies: 
-  - compile
   script:
   - dotnet push *.nupkg -k $nugetAPI -Source "https://api.nuget.org/v3/index.json"
   only:
