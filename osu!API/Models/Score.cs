@@ -7,8 +7,11 @@ namespace DragonFruit.osu.API.Models
 {
     public class Score
     {
+        [JsonProperty("beatmap_id")]
+        public long BeatmapID { get; set; }
+        
         [JsonProperty("score_id")]
-        public long ID { get; set; }
+        public long ScoreID { get; set; }
 
         [JsonProperty("score")]
         public long PlayerScore { get; set; }
