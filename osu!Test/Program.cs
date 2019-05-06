@@ -48,7 +48,7 @@ namespace osu_Test
             {
                 Limit = 50,
                 Mode = osu.GameModes.osu,
-                User = user[0].UserID,
+                User = user[0].UserID.ToString(),
                 IsUserAnID = true
 
             }); //make the request and serialise it to the User model
