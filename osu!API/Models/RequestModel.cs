@@ -23,7 +23,7 @@ namespace DragonFruit.osu.API.Models
             queryString["k"] = osu.apiKey;
             queryString["u"] = model.User;
             queryString["limit"] = model.Limit.ToString();
-            queryString["m"] = model.Mode.ToString();
+            queryString["m"] = ((int)model.Mode).ToString();
             queryString["type"] = !model.IsUserAnID ? "string" : "id";
             queryString["s"] = model.BeatmapSet;
             queryString["b"] = model.Beatmap;
