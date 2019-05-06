@@ -43,6 +43,16 @@ namespace osu_Test
             }); //make the request and serialise it to the User model
             Console.WriteLine($"Test 3: Get {user[0].Username}'s Best score at [ADAMAS Monstrata's Insane] {adamas[0].PlayerScore:n0} points");
 
+            //recent osu beatmaps
+            var best = await Requests.Make<Score>(Endpoints.UserBestPerformance, new RequestModel
+            {
+                Limit = 50,
+                Mode = osu.GameModes.osu,
+                User = user[0].UserID,
+                IsUserAnID = true
+
+            }); //make the request and serialise it to the User model
+            Console.WriteLine("Test 4: Get"+user[0].Username+"'s Best Performances: " + best.Count + " found");
         }
     }
 }
