@@ -67,7 +67,7 @@ namespace DragonFruit.osu.API
             osu = 0,
             Taiko = 1,
             CatchTheBeat = 2,
-            Mainia = 3
+            Mania = 3
         }
 
 
