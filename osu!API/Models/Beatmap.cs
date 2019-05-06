@@ -7,6 +7,9 @@ namespace DragonFruit.osu.API.Models
 {
     public class Beatmap
     {
+        [JsonProperty("title")]
+        public string Title { get; set; }
+
         [JsonProperty("approved")]
         public osu.BeatmapStatus BeatmapStatus { get; set; }
 
