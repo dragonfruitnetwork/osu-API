@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,8 +25,14 @@ namespace DragonFruit.osu.API.Models
         [JsonProperty("count300")]
         public int Count300 { get; set; }
 
+        [JsonProperty("countkatu")]
+        public int CountKatu {get; set; }
+
         [JsonProperty("count100")]
         public int Count100 { get; set; }
+
+        [JsonProperty("countgeki")]
+        public int CountGeki { get; set; }
 
         [JsonProperty("count50")]
         public int Count50 { get; set; }
