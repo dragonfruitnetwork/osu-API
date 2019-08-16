@@ -14,7 +14,7 @@ namespace osu_Test
     {
         static async Task Main(string[] args)
         {
-            osu.SetAPIKey(args.Length>0? args[0] :Environment.GetEnvironmentVariable("osuAPI", EnvironmentVariableTarget.Machine));
+            Auth.SetAPIKey(args.Length>0? args[0] :Environment.GetEnvironmentVariable("osuAPI", EnvironmentVariableTarget.Machine));
 
             //username test
             var user = await Requests.Make<User>(Endpoints.UserInfo, new RequestModel
@@ -28,7 +28,7 @@ namespace osu_Test
             var maps = await Requests.Make<Beatmap>(Endpoints.BeatmapInfo, new RequestModel
             {
                 Limit = 50,
-                Mode = osu.GameModes.osu,
+                Mode = DragonFruit.osu.API.Enums.Modes.osu,
                 IncludeConvertedMaps = false,
 
             }); //make the request and serialise it to the User model
@@ -47,7 +47,7 @@ namespace osu_Test
             var best = await Requests.Make<Score>(Endpoints.UserBestPerformance, new RequestModel
             {
                 Limit = 50,
-                Mode = osu.GameModes.osu,
+                Mode = DragonFruit.osu.API.Enums.Modes.osu,
                 User = user[0].UserID.ToString(),
                 IsUserAnID = true
 

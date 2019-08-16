@@ -41,7 +41,7 @@ namespace DragonFruit.osu.API.Models
         public int Count0 { get; set; }
 
         [JsonProperty("enabled_mods")]
-        public osu.Mods Mods { get; set; }
+        public Enums.Mods Mods { get; set; }
 
         [JsonProperty("maxcombo")]
         public int MaxCombo { get; set; }

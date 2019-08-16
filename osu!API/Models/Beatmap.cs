@@ -11,7 +11,7 @@ namespace DragonFruit.osu.API.Models
         public string Title { get; set; }
 
         [JsonProperty("approved")]
-        public osu.BeatmapStatus BeatmapStatus { get; set; }
+        public Enums.BeatmapStatus BeatmapStatus { get; set; }
 
         [JsonProperty("approved_date")]
         public DateTime ApprovedDate { get; set; }
@@ -62,7 +62,7 @@ namespace DragonFruit.osu.API.Models
         public string BeatmapHash { get; set; }
 
         [JsonProperty("mode")]
-        public osu.GameModes GameMode { get; set; }
+        public Enums.Modes GameMode { get; set; }
 
         [JsonProperty("tags")]
         public string TagList { get; set; }
