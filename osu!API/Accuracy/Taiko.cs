@@ -5,13 +5,12 @@ using System.Text;
 
 namespace DragonFruit.osu.API.Accuracy
 {
-    public class Taiko : AccuracyBase
+    public class Taiko : Accuracy
     {
         public Taiko(Score Score)
         {
-            RawData = Score;
-            MaxPoints = RawData.Count300 = RawData.Count100 + RawData.Count0;
-            EarnedPoints = RawData.Count300 + (.5 * RawData.Count100);
+            MaxPoints = Score.Count300 = Score.Count100 + Score.Count0;
+            EarnedPoints = Score.Count300 + (.5 * Score.Count100);
         }
     }
 }

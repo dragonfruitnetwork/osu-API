@@ -5,13 +5,12 @@ using System.Text;
 
 namespace DragonFruit.osu.API.Accuracy
 {
-    public class Osu : AccuracyBase
+    public class Osu : Accuracy
     {
         public Osu(Score Score)
         {
-            RawData = Score;
-            MaxPoints = 300 * (RawData.Count0 + RawData.Count50 + RawData.Count100 + RawData.Count300);
-            EarnedPoints = (300 * RawData.Count300) + (100 * RawData.Count100) + (50 * RawData.Count50);
+            MaxPoints = 300 * (Score.Count0 + Score.Count50 + Score.Count100 + Score.Count300);
+            EarnedPoints = (300 * Score.Count300) + (100 * Score.Count100) + (50 * Score.Count50);
         }
     }
 }

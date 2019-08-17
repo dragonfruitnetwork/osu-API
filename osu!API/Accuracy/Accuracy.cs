@@ -2,10 +2,8 @@
 
 namespace DragonFruit.osu.API.Accuracy
 {
-    public class AccuracyBase
+    public class Accuracy
     {
-        public Score RawData { get; set; }
-
         public double MaxPoints { get; set; }
         public double EarnedPoints { get; set; }
 

@@ -25,14 +25,20 @@ namespace DragonFruit.osu.API.Models
         [JsonProperty("count300")]
         public int Count300 { get; set; }
 
-        [JsonProperty("countkatu")]
-        public int CountKatu {get; set; }
+        /// <summary>
+        /// Geki - combo = all 300s. Also used as the rainbow 300s in Mania (perfect)
+        /// </summary>
+        [JsonProperty("countgeki")]
+        public int CountGeki { get; set; }
 
         [JsonProperty("count100")]
         public int Count100 { get; set; }
 
-        [JsonProperty("countgeki")]
-        public int CountGeki { get; set; }
+        /// <summary>
+        /// acts as 200s in mania
+        /// </summary>
+        [JsonProperty("countkatu")]
+        public int CountKatu { get; set; }
 
         [JsonProperty("count50")]
         public int Count50 { get; set; }
