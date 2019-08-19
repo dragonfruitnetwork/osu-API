@@ -66,5 +66,7 @@ namespace DragonFruit.osu.API.Models
 
         [JsonProperty("replay_available")]
         public int IsReplayAvailable { get; set; }
+
+        public Enums.Modes GameMode { get; set; }
     }
 }
