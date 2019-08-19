@@ -15,7 +15,7 @@ namespace DragonFruit.osu.API.Network
         {
             string url = RequestModel.Compile(Endpoint, m); //compile the request url
 
-            return JsonConvert.DeserializeObject<List<T>>(await new HttpClient().GetAsync(url).Result.Content.ReadAsStringAsync()); //get and parse into list
+            return JsonConvert.DeserializeObject<List<T>>(await new HttpClient().GetAsync(url).Result.Content.ReadAsStringAsync(), new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }); //get and parse into list
 
         }
     }
