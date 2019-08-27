@@ -44,4 +44,38 @@ namespace DragonFruit.osu.API.Enums
         ScoreIncreaseMods = Hidden | HardRock | DoubleTime | Flashlight | FadeIn
     }
 
+    public enum ModCodes
+    {
+        NOMOD = 0,
+        NF = 1,
+        EZ = 2,
+        TD = 4,
+        HD = 8,
+        HR = 16,
+        SD = 32,
+        DT = 64,
+        RX = 128,
+        HT = 256,
+        NC = 512,
+        FL = 1024,
+        AT = 2048,
+        SO = 4096,
+        AP = 8192,
+        PF = 16384,
+        KEY4 = 32768,
+        KEY5 = 65536,
+        KEY6 = 131072,
+        KEY7 = 262144,
+        KEY8 = 524288,
+        FADEIN = 1048576,
+        RANDOM = 2097152,
+        CINEMA = 4194304,
+        TARGET = 8388608,
+        KEY9 = 16777216,
+        KEYCOOP = 33554432,
+        KEY1 = 67108864,
+        KEY3 = 134217728,
+        KEY2 = 268435456,
+        SCOREV2 = 536870912,
+    }
 }
