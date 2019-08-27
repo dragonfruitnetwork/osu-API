@@ -44,6 +44,7 @@ namespace DragonFruit.osu.API.Enums
         ScoreIncreaseMods = Hidden | HardRock | DoubleTime | Flashlight | FadeIn
     }
 
+    [Flags]
     public enum ModCodes
     {
         NOMOD = 0,
