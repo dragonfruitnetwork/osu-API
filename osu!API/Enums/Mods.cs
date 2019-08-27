@@ -4,6 +4,7 @@ using System.Text;
 
 namespace DragonFruit.osu.API.Enums
 {
+    [Flags]
     public enum Mods
     {
         None = 0,
