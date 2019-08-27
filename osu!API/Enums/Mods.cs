@@ -21,7 +21,7 @@ namespace DragonFruit.osu.API.Enums
         Flashlight = 1024,
         Autoplay = 2048,
         SpunOut = 4096,
-        Relax2 = 8192,  // Autopilot
+        Autopilot = 8192,  // Autopilot
         Perfect = 16384, // Only set along with SuddenDeath. i.e: PF only gives 16416  
         Key4 = 32768,
         Key5 = 65536,
@@ -40,7 +40,7 @@ namespace DragonFruit.osu.API.Enums
         ScoreV2 = 536870912,
         LastMod = 1073741824,
         KeyMod = Key1 | Key2 | Key3 | Key4 | Key5 | Key6 | Key7 | Key8 | Key9 | KeyCoop,
-        FreeModAllowed = NoFail | Easy | Hidden | HardRock | SuddenDeath | Flashlight | FadeIn | Relax | Relax2 | SpunOut | KeyMod,
+        FreeModAllowed = NoFail | Easy | Hidden | HardRock | SuddenDeath | Flashlight | FadeIn | Relax | Autopilot | SpunOut | KeyMod,
         ScoreIncreaseMods = Hidden | HardRock | DoubleTime | Flashlight | FadeIn
     }
 
