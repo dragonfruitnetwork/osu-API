@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using DragonFruit.osu.API.Models;
 using Newtonsoft.Json;
 using System.Globalization;
@@ -11,7 +11,7 @@ namespace DragonFruit.osu.API.Network
     {
         private const string UserAgent = "osu!API";
 
-        private static readonly JsonSerializerSettings Parser = new JsonSerializerSettings
+        public static readonly JsonSerializerSettings Parser = new JsonSerializerSettings
         {
             Culture = new CultureInfo("en-us"),
             NullValueHandling = NullValueHandling.Ignore,
