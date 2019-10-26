@@ -21,6 +21,6 @@ var request = new RequestModel
   //you can also have beatmaps and other stuff in here - the api key is auto added
 };
 
-var x = await Requests.Make<User>(Endpoints.UserInfo,request); //make the request and serialise it to the User model
+var x = await Requests.Stream<User>(Endpoints.UserInfo, request); //make the request and serialise it to the User model
 Console.WriteLine(x.First().UserID); //print ID
 ```

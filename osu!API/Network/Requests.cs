@@ -1,22 +1,41 @@
-﻿using DragonFruit.osu.API.Models;
+﻿using System.Collections.Generic;
+using DragonFruit.osu.API.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DragonFruit.osu.API.Network
 {
     public class Requests
     {
-        public static async Task<List<T>> Make<T>(string Endpoint,RequestModel m)
+        private const string UserAgent = "osu!API";
+
+        private static readonly JsonSerializerSettings Parser = new JsonSerializerSettings
         {
-            string url = RequestModel.Compile(Endpoint, m); //compile the request url
+            Culture = new CultureInfo("en-us"),
+            NullValueHandling = NullValueHandling.Ignore,
+            DateTimeZoneHandling = DateTimeZoneHandling.Utc
+        };
 
-            return JsonConvert.DeserializeObject<List<T>>(await new HttpClient().GetAsync(url).Result.Content.ReadAsStringAsync(), new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }); //get and parse into list
+        private static readonly JsonSerializer Serializer = JsonSerializer.Create(Parser);
 
+        public static T Stream<T>(string uri)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent);
+
+                using (Stream s = client.GetStreamAsync(uri).Result)
+                using (StreamReader sr = new StreamReader(s))
+                using (JsonReader reader = new JsonTextReader(sr))
+                {
+                    return Serializer.Deserialize<T>(reader);
+                }
+
+            }
         }
+
+        public static List<T> Stream<T>(string endpoint, RequestModel m) => Stream<List<T>>(RequestModel.Compile(endpoint, m));
     }
 }
